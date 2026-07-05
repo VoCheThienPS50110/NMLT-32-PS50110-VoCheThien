@@ -1,1 +1,1 @@
-![alert text](../chupmanhinh.png)
+![alert text](Chupmanhinh.png)

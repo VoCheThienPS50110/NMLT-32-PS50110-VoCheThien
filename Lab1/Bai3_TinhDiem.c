@@ -9,8 +9,7 @@ int main()
     unsigned short Namsinh;
 
     printf("Nhap ho va ten: ");
-    scanf("%[^\n]", HoVaTen);
-    getchar(); 
+    scanf("%[^\n]", HoVaTen); 
 
     printf("Nhap MSSV: ");
     scanf("%s", MSSV);
@@ -36,7 +35,7 @@ int main()
     printf("Diem Toan: %d\n", toan);
     printf("Diem Ly: %d\n", ly);
     printf("Diem Hoa: %d\n", hoa);
-    printf("Diem trung binh: %.2f\n", (toan + ly + hoa) / 3.0);
+    printf("Diem trung binh: %.2f\n", ((toan * 2.0) + ly + hoa) / 4.0);
 
     return 0;
 }

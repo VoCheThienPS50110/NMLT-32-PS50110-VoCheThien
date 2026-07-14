@@ -12,8 +12,7 @@ int main()
     scanf("%[^\n]", HoVaTen); 
 
     printf("Nhap MSSV: ");
-    scanf("%s", MSSV);
-    getchar(); 
+    scanf("%s", MSSV); 
 
     printf("Nhap nam sinh: ");
     scanf("%hu", &Namsinh);

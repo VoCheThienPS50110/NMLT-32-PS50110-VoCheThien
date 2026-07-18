@@ -3,14 +3,8 @@
 int main()
 {
     float Diem_toan, Diem_ly, Diem_hoa, Diem_tb;
-    printf("Nhap diem mon Toan: ");
-    scanf("%f", &Diem_toan);
-
-    printf("Nhap diem mon Ly: ");
-    scanf("%f", &Diem_ly);
-
-    printf("Nhap diem mon Hoa: ");
-    scanf("%f", &Diem_hoa);
+    printf("Nhap diem mon Toan Ly Hoa: ");
+    scanf("%f%f%f", &Diem_toan, &Diem_ly, &Diem_hoa);
 
     printf("Diem Toan: %.2f\n", Diem_toan);
     printf("Diem Ly: %.2f\n", Diem_ly);

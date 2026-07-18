@@ -2,7 +2,7 @@
 int main()
 {
     int chon;
-    float a;
+    float t;
     do
     {
         printf("+---------------------------------------------------+\n");
@@ -21,30 +21,30 @@ int main()
             printf("Ban chon chuc nang 0: Thoat chuong trinh\n");
             break;
         case 1:
-            printf("Ban chon 1: Tinh hoc luc hoc sinh\n");
+            printf("Ban chon chuc nang 1: Tinh hoc luc hoc sinh\n");
             printf("Nhap diem trung binh: ");
-            scanf("%f", &a);
-            if (a >= 9 && a <= 10)
+            scanf("%f", &t);
+            if (t >= 9 && t <= 10)
             {
                 printf("Hoc luc xuat sac\n");
             }
-            else if (a >= 8 && a < 9)
+            else if (t >= 8 && t < 9)
             {
                 printf("Hoc luc gioi\n");
             }
-            else if (a >= 6.5 && a < 8)
+            else if (t >= 6.5 && t < 8)
             {
                 printf("Hoc luc kha\n");
             }
-            else if (a >= 5 && a < 6.5)
+            else if (t >= 5 && t < 6.5)
             {
                 printf("Hoc luc trung binh\n");
             }
-            else if (a >= 3.5 && a < 5)
+            else if (t >= 3.5 && t < 5)
             {
                 printf("Hoc luc yeu\n");
             }
-            else if (a >= 0 && a < 3.5)
+            else if (t >= 0 && t < 3.5)
             {
                 printf("Hoc luc kem\n");
             }

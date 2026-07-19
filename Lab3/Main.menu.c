@@ -4,7 +4,7 @@ int main()
 {
     int chon, a, b, c, d;
     float t, x1, x2, delta, tong;
-    long long Bac1, Bac2, Bac3, Bac4, Bac5, Bac6;
+    int Bac1, Bac2, Bac3, Bac4, Bac5, Bac6;
     do
     {
         printf("+---------------------------------------------------+\n");

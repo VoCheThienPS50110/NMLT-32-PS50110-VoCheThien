@@ -2,8 +2,9 @@
 #include <math.h>
 int main()
 {
-    int chon, a, b, c;
-    float t, x1, x2, delta;
+    int chon, a, b, c, d;
+    float t, x1, x2, delta, tong;
+    long long Bac1, Bac2, Bac3, Bac4, Bac5, Bac6;
     do
     {
         printf("+---------------------------------------------------+\n");
@@ -62,7 +63,7 @@ int main()
             {
 
                 printf("Truong hop 1: a = 0 \n");
-                printf("Phuong trinh bac nhat: %dx+%d=0\n", b, c);
+                printf("Phuong trinh bac nhat %dx+%d=0\n", b, c);
                 if (b == 0 && c == 0)
                 {
                     printf("b = 0 va c = 0\n");
@@ -77,7 +78,7 @@ int main()
                 {
                     x1 = -(float)c / b;
                     printf("b khac 0\n");
-                    printf("Phuong trinh co nghiem duy nhat: x1=%.2f\n", x1);
+                    printf("Phuong trinh co nghiem duy nhat: x=%.2f\n",x1);
                 }
             }
             else if (a != 0)
@@ -87,20 +88,20 @@ int main()
                 if (delta == 0)
                 {
                     x1 = (-(float)b) / (2 * a);
-                    printf("Delta = 0");
-                    printf("Phuong trinh nghiem kep x1= %.2f\n", x1);
+                    printf("Delta = 0\n");
+                    printf("Phuong trinh %dx^2+%dx+%d=0 nghiem kep x= %.2f\n", a,b,c,x1);
                 }
                 else if (delta > 0)
                 {
                     x1 = (-(float)b + sqrt(delta)) / (2 * a);
                     x2 = (-(float)b - sqrt(delta)) / (2 * a);
-                    printf("Delta > 0");
+                    printf("Delta > 0\n");
                     printf("phuong trinh %dx^2+%dx+%d = 0 co nghiem 2 nghiem x1=%.2f, x2=%.2f\n", a, b, c, x1, x2);
                 }
                 else if (delta < 0)
                 {
-                    printf("Delta < 0");
-                    printf("Phuong trinh vo nghiem\n");
+                    printf("Delta < 0\n");
+                    printf("Phuong trinh %dx^2+%dx+%d=0 vo nghiem\n",a,b,c);
                 }
             }
             break;

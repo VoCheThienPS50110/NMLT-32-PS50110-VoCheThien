@@ -3,8 +3,7 @@
 int main()
 {
     int chon, a, b, c, d;
-    float t, x1, x2, delta, tong;
-    int Bac1, Bac2, Bac3, Bac4, Bac5, Bac6;
+    float t, x1, x2, delta;
     do
     {
         printf("+---------------------------------------------------+\n");

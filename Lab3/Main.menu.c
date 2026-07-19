@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 int main()
 {
-    int chon;
-    float t;
+    int chon, a, b, c;
+    float t, x1, x2, delta;
     do
     {
         printf("+---------------------------------------------------+\n");
@@ -54,7 +55,54 @@ int main()
             }
             break;
         case 2:
-            printf("Ban chon chuc nang 2: Giai phuong trinh\n");
+            printf("Ban chon chuc nang 2: Giai phuong trinh bac 2\n");
+            printf("Nhap he so a, b, c: ");
+            scanf("%d%d%d", &a, &b, &c);
+            if (a == 0)
+            {
+
+                printf("Truong hop 1: a = 0 \n");
+                printf("Phuong trinh bac nhat: %dx+%d=0\n", b, c);
+                if (b == 0 && c == 0)
+                {
+                    printf("b = 0 va c = 0\n");
+                    printf("Phuong trinh vo so nghiem\n");
+                }
+                else if (b == 0 && c != 0)
+                {
+                    printf("b = 0 va c khac 0\n");
+                    printf("Phuong trinh vo nghiem\n");
+                }
+                else if (b != 0)
+                {
+                    x1 = -(float)c / b;
+                    printf("b khac 0\n");
+                    printf("Phuong trinh co nghiem duy nhat: x1=%.2f\n", x1);
+                }
+            }
+            else if (a != 0)
+            {
+                printf("Truong hop 2: a khac 0\n");
+                delta = (b * b) - (4 * a * c);
+                if (delta == 0)
+                {
+                    x1 = (-(float)b) / (2 * a);
+                    printf("Delta = 0");
+                    printf("Phuong trinh nghiem kep x1= %.2f\n", x1);
+                }
+                else if (delta > 0)
+                {
+                    x1 = (-(float)b + sqrt(delta)) / (2 * a);
+                    x2 = (-(float)b - sqrt(delta)) / (2 * a);
+                    printf("Delta > 0");
+                    printf("phuong trinh %dx^2+%dx+%d = 0 co nghiem 2 nghiem x1=%.2f, x2=%.2f\n", a, b, c, x1, x2);
+                }
+                else if (delta < 0)
+                {
+                    printf("Delta < 0");
+                    printf("Phuong trinh vo nghiem\n");
+                }
+            }
             break;
         case 3:
             printf("Ban chon chuc nang 3: Tien tien dien\n");

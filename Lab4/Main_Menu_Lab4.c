@@ -76,7 +76,22 @@ int main()
             ketthuc:
             break;
         case 3:
-            printf("Ban chon chuc nang 3: Kiem tra so chinh phuong");
+            printf("Ban chon chuc nang 3: Kiem tra so chinh phuong\n");
+            printf("Nhap x: ");
+            scanf("%d",&x);
+            for(int i=2;i<x;i++)
+            {
+                if(i*i==x)
+                {
+                    printf("So %d la so chinh phuong\n",x);
+                    goto ketthuc2;
+                }
+            }
+            printf("So %d khong phai la so chinh phuong\n",x);
+            ketthuc2:
+            break;
+        default:
+            printf("Ban phai chon chuc nang 0 - 3\n");
             break;
         }
     } while (chon != 0);

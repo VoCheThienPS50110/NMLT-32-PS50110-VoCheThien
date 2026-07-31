@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 void chucNang1();
+int Max(int a, int b, int c);
 void chucNang2();
 bool kiemTra(int Nam);
 int main()
@@ -47,7 +48,6 @@ int main()
 void chucNang1()
 {
     int a, b, c;
-    int Max(int a, int b, int c);
     printf("Ban chon chuc nang 1: Tim gia tri lon nhat trong 3 so\n");
     printf("Nhap vao 3 so bat ki: ");
     scanf("%d%d%d", &a, &b, &c);

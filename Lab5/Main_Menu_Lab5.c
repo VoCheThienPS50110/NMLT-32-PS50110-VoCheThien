@@ -1,5 +1,8 @@
 #include <stdio.h>
+#include <stdbool.h>
 void chucNang1();
+void chucNang2();
+bool kiemTra(int Nam);
 int main()
 {
     int chon;
@@ -22,7 +25,7 @@ int main()
             chucNang1();
             break;
         case 2:
-            printf("Ban chon chuc nang 2: Kiem tra Nam nhuan\n");
+            chucNang2();
             break;
         case 3:
             printf("Ban chon chuc nang 3: Hoan vi 2 so (Su dung con tro)\n");
@@ -62,4 +65,31 @@ int Max(int a, int b, int c)
         max = c;
     }
     return max;
+}
+
+void chucNang2()
+{
+    int Nam;
+    printf("Ban chon chuc nang 2: Kiem tra Nam nhuan\n");
+    printf("Nhap vao nam can kiem tra: ");
+    scanf("%d", &Nam);
+    if (kiemTra(Nam))
+    {
+        printf(">> Nam %d la nam Nhuan\n");
+    }
+    else
+    {
+        printf(">> Nam %d khong phai la nam nhuan\n");
+    }
+}
+bool kiemTra(int Nam)
+{
+    if (Nam % 400 == 0 || (Nam % 4 == 0 && Nam % 100 != 0))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

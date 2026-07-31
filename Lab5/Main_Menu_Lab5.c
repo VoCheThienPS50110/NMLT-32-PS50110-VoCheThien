@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdbool.h>
 void chucNang1();
-int Max(int a, int b, int c);
 void chucNang2();
+void chucNang3();
+void chucNang4();
+int Max(int a, int b, int c);
 bool kiemTra(int Nam);
+void swap(int *a, int *b);
 int main()
 {
     int chon;
     do
     {
-        printf("+---------------------------------------------------+\n");
+        printf("\n+---------------------------------------------------+\n");
         printf("|             MENU CHUONG TRINH LAB 5               |\n");
         printf("+---------------------------------------------------+\n");
         printf("| 1. Tim gia tri lon nhat trong 3 so                |\n");
@@ -29,10 +32,10 @@ int main()
             chucNang2();
             break;
         case 3:
-            printf("Ban chon chuc nang 3: Hoan vi 2 so (Su dung con tro)\n");
+            chucNang3();
             break;
         case 4:
-            printf("Ban chon chuc nang 4: Kiem tra & Phan loai tam giac\n");
+            chucNang4();
             break;
         case 5:
             printf("Ban chon chuc nang 5: Thoat chuong trinh\n");
@@ -92,4 +95,26 @@ bool kiemTra(int Nam)
     {
         return false;
     }
+}
+
+void chucNang3()
+{
+    int x, y;
+    printf("Ban chon chuc nang 3: Hoan vi 2 so (Su dung con tro)\n");
+    printf("Nhap hai so x, y: ");
+    scanf("%d%d", &x, &y);
+    printf(">> Hai so truoc khi hoan vi x = %d; y = %d\n", x, y);
+    swap(&x, &y);
+    printf(">> Hai so sau khi hoan vi x = %d; y = %d\n", x, y);
+}
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void chucNang4()
+{
+    printf("Ban chon chuc nang 4: Kiem tra & Phan loai tam giac\n");
 }

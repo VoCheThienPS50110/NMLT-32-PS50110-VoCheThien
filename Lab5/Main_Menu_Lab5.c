@@ -1,4 +1,5 @@
 #include <stdio.h>
+void chucNang1();
 int main()
 {
     int chon;
@@ -18,7 +19,7 @@ int main()
         switch (chon)
         {
         case 1:
-            printf("Ban chon chuc nang 1: Tim gia tri lon nhat trong 3 so\n");
+            chucNang1();
             break;
         case 2:
             printf("Ban chon chuc nang 2: Kiem tra Nam nhuan\n");
@@ -38,4 +39,27 @@ int main()
         }
     } while (chon != 5);
     return 0;
+}
+
+void chucNang1()
+{
+    int a, b, c;
+    int Max(int a, int b, int c);
+    printf("Ban chon chuc nang 1: Tim gia tri lon nhat trong 3 so\n");
+    printf("Nhap vao 3 so bat ki: ");
+    scanf("%d%d%d", &a, &b, &c);
+    printf("So lon nhat trong 3 so la: %d\n", Max(a, b, c));
+}
+int Max(int a, int b, int c)
+{
+    int max = a;
+    if (max < b)
+    {
+        max = b;
+    }
+    if (max < c)
+    {
+        max = c;
+    }
+    return max;
 }

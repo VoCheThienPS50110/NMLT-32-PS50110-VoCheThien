@@ -82,7 +82,12 @@ void Chucnang1()
     {
         printf(">> So %.2f la so nguyen\n", n);
         // Xét điều kiện số nguyên tố
-        if (n < 2)
+    }
+    else
+    {
+        printf(">> So %.2f khong phai la so nguyen\n", n);
+    }
+    if (n < 2)
         {
             printf(">> So %.2f khong phai la so nguyen to\n", n);
         }
@@ -97,11 +102,6 @@ void Chucnang1()
             printf(">> So %.2f la so nguyen to\n", n);
         ketthuc:
         }
-    }
-    else
-    {
-        printf(">> So %.2f khong phai la so nguyen\n", n);
-    }
 
     // XÉT ĐIỀU KIỆN SỐ CHÍNH PHƯƠNG
     /*if(sqrt(n)==(int)sqrt(n))

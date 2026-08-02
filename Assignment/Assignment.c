@@ -3,6 +3,7 @@
 void chucNang1();
 void chucNang2();
 void chucNang3();
+void chucNang4();
 int main()
 {
     int chon;
@@ -41,7 +42,7 @@ int main()
             chucNang3();
             break;
         case 4:
-            printf("Ban chon chuc nang 4: Tinh tien dien\n");
+            chucNang4();
             break;
         case 5:
             printf("Ban chon chuc nang 5: Chuc nang doi ten\n");
@@ -199,6 +200,51 @@ void chucNang3()
                 tien = tien * 0.9;
             }
             printf(">> So tien phai tra trong vong %d gio la: %d VND\n", tongtime, tien);
+            break;
+        }
+    }
+}
+
+void chucNang4()
+{
+    int kwh, tien;
+    printf("Ban chon chuc nang 4: Tinh tien dien\n");
+    while (1)
+    {
+        printf("Nhap vao so kwh: ");
+        scanf("%d", &kwh);
+        if (kwh < 0)
+        {
+            printf(">> Ban nhap so kwh khong hop le!\n");
+            printf(">> Ban hay nhap lai kwh <<\n");
+        }
+        else
+        {
+            if (kwh >= 0 && kwh <= 50)
+            {
+                tien = kwh * 1678;
+            }
+            else if (kwh >= 51 && kwh <= 100)
+            {
+                tien = (50 * 1678) + ((kwh - 50) * 1734);
+            }
+            else if (kwh >= 101 && kwh <= 200)
+            {
+                tien = (50 * 1678) + (50 * 1734) + ((kwh - 100) * 2014);
+            }
+            else if (kwh >= 201 && kwh <= 300)
+            {
+                tien = (50 * 1678) + (50 * 1734) + (100 * 2014) + ((kwh - 200) * 2536);
+            }
+            else if (kwh >= 301 && kwh <= 400)
+            {
+                tien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (100 * 2536) + ((kwh - 300) * 2834);
+            }
+            else if (kwh >= 401)
+            {
+                tien = (50 * 1678) + (50 * 1734) + (100 * 2014) + (100 * 2536) + (100 * 2834) + ((kwh - 400) * 2927);
+            }
+            printf(">>Tong tien voi %d kwh la: %d VND\n", kwh, tien);
             break;
         }
     }

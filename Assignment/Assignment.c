@@ -1,7 +1,8 @@
 #include <stdio.h>
 // #include <math.h> khi nào sử dụng đến sqrt mới cần đến thư viện này
-void Chucnang1();
-void Chucnang2();
+void chucNang1();
+void chucNang2();
+void chucNang3();
 int main()
 {
     int chon;
@@ -31,13 +32,13 @@ int main()
             printf(">>> Ban da thoat chuong trinh <<\n");
             break;
         case 1:
-            Chucnang1();
+            chucNang1();
             break;
         case 2:
-            Chucnang2();
+            chucNang2();
             break;
         case 3:
-            printf("Ban chon chuc nang 3: Tinh tien cho quan karaoke\n");
+            chucNang3();
             break;
         case 4:
             printf("Ban chon chuc nang 4: Tinh tien dien\n");
@@ -68,7 +69,7 @@ int main()
     return 0;
 }
 
-void Chucnang1()
+void chucNang1()
 {
     float n;
     /*Khai báo n là float vì để nhập số thập phân vào
@@ -88,20 +89,20 @@ void Chucnang1()
         printf(">> So %.2f khong phai la so nguyen\n", n);
     }
     if (n < 2)
-        {
-            printf(">> So %.2f khong phai la so nguyen to\n", n);
-        }
-        else
-        {
-            for (int i = 2; i < n; i++)
-                if ((int)n % i == 0)
-                {
-                    printf(">> So %.2f Khong phai la so nguyen to\n", n);
-                    goto ketthuc;
-                }
-            printf(">> So %.2f la so nguyen to\n", n);
-        ketthuc:
-        }
+    {
+        printf(">> So %.2f khong phai la so nguyen to\n", n);
+    }
+    else
+    {
+        for (int i = 2; i < n; i++)
+            if ((int)n % i == 0)
+            {
+                printf(">> So %.2f Khong phai la so nguyen to\n", n);
+                goto ketthuc;
+            }
+        printf(">> So %.2f la so nguyen to\n", n);
+    ketthuc:
+    }
 
     // XÉT ĐIỀU KIỆN SỐ CHÍNH PHƯƠNG
     /*if(sqrt(n)==(int)sqrt(n))
@@ -129,7 +130,7 @@ void Chucnang1()
     }
 }
 
-void Chucnang2()
+void chucNang2()
 {
     int a, b, x, y, bcnn, ucln;
     printf("Ban chon chuc nang 2: Tim uoc so chung va boi so chung cua 2 so\n");
@@ -143,11 +144,11 @@ void Chucnang2()
     {
         printf(">> Ban nhap gia tri khong hop le!\n");
     }
-    else 
+    else
     {
         a = x; // khai báo thêm biến phụ để giữ giá trị ban đầu là x và y khi nhập vào để một lát tìm BCNN
         b = y;
-        while (a != b) // vòng lặp chạy đến khi nào a==b còn a!=b tiép tục chạy
+        while (a != b) // vòng lặp chạy đến khi nào a==b thì dừng còn a!=b tiép tục chạy
         {
             if (a > b) // do là UCLN và BCNN không âm nên khi a>b thì lấy a-b còn b>a thì đảo lại b-a trừ cho đến khi a và b bằng nhau và kết quả cuối là UCLN
             {
@@ -162,5 +163,43 @@ void Chucnang2()
         bcnn = (x * y) / a; // gán công thức bcnn
         printf(">> UCLN cua 2 so la: %d\n", a);
         printf(">> BCNN cua 2 so la: %d\n", bcnn);
+    }
+}
+
+void chucNang3()
+{
+    int bd, kt, tongtime, tien;
+    printf("Ban chon chuc nang 3: Tinh tien cho quan karaoke\n");
+    while (1)
+    {
+        printf("Ban hay nhap Thoi gian bat dau va ket thuc: ");
+        scanf("%d%d", &bd, &kt);
+        if (bd < 12 || kt > 23 || bd >= kt)
+        {
+            printf(">> Ban nhap gio vao khong hop le!\n");
+            printf(">> Yeu cau nhap lai <<\n");
+        }
+        else
+        {
+            tongtime = kt - bd;
+            if (tongtime <= 3)
+            {
+                tien = tongtime * 150000;
+                // 150.000 VND là giá tiền của 1 tiếng karaoke
+            }
+            else
+            {
+
+                tien = (3 * 150000) + ((tongtime - 3) * 150000 * 0.7);
+                // số 3 là 3 giờ đầu; 0.7 là do giảm 30 nên chỉ còn 70% = 0.7
+                // tongtime-3 là thời gian mà chơi lố vượt quá 3 giờ và giảm đi 30% tổng giá tiền
+            }
+            if (bd >= 14 && bd <= 17)
+            {
+                tien = tien * 0.9;
+            }
+            printf(">> So tien phai tra trong vong %d gio la: %d VND\n", tongtime, tien);
+            break;
+        }
     }
 }

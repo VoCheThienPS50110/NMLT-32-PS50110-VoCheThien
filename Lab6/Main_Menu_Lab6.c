@@ -4,6 +4,9 @@ void chucNang2();
 void chucNang3();
 void chucNang4();
 void chucNang5();
+void TBC(int A[], int n);
+void maxMin(int A[], int n);
+void sapXepGiam(int A[], int n);
 int main()
 {
     int chon;
@@ -24,15 +27,13 @@ int main()
         switch (chon)
         {
         case 1:
-            printf("Ban chon chuc nang 1: Tinh trung binh tong so chia het cho 3 va 5\n");
             chucNang1();
             break;
         case 2:
-            printf("Ban chon chuc nang 2: Tim gia tri lon nhat va nho nhat trong mang\n");
             chucNang2();
             break;
         case 3:
-            printf("Ban chon chuc nang 3: Sap xep mang theo thu tu giam dan\n");
+
             chucNang3();
             break;
         case 4:
@@ -49,22 +50,101 @@ int main()
     } while (chon != 6);
     return 0;
 }
-
+//==================================================================================================================================================================
 void chucNang1()
 {
+    int n;
+    printf("Ban chon chuc nang 1: Tinh trung binh tong so chia het cho 3 va 5\n");
+    printf("Nhap so luong mang: ");
+    scanf("%d", &n);
+    int A[n];
+    printf("Nhap A[%d] = ", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &A[i]);
+    }
+
+    TBC(A, n);
 }
+//==================================================================================================================================================================
 void chucNang2()
 {
+    int n;
+    printf("Ban chon chuc nang 2: Tim gia tri lon nhat va nho nhat trong mang\n");
+    printf("Nhap so luong mang: ");
+    scanf("%d", &n);
+    int A[n];
+    printf("Nhap A[%d]= ", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &A[i]);
+    }
+    maxMin(A, n);
 }
-
+//==================================================================================================================================================================
 void chucNang3()
 {
+    int n;
+    printf("Ban chon chuc nang 3: Sap xep mang theo thu tu giam dan\n");
+    printf("Nhap so luong mang: ");
+    scanf("%d", &n);
+    int A[n];
+    printf("Nhap A[%d]= ", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &A[i]);
+    }
+    sapXepGiam(A, n);
 }
-
+//==================================================================================================================================================================
 void chucNang4()
 {
 }
-
+//==================================================================================================================================================================
 void chucNang5()
+{
+}
+//==================================================================================================================================================================
+void TBC(int A[], int n)
+{
+    int tong = 0, dem = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (A[i] % 3 == 0 && A[i] % 5 == 0)
+        {
+            tong += A[i];
+            dem++;
+        }
+    }
+    if (dem == 0)
+    {
+        printf("Khong co phan tu nao chia het cho 3 va 5.\n");
+    }
+    else
+    {
+        float trungBinh = (float)tong / dem;
+        printf("TBC cac so chia het cho 3 va 5 la: %.2f\n", trungBinh);
+    }
+}
+//==================================================================================================================================================================
+void maxMin(int A[], int n)
+{
+    int max = A[0];
+    int min = A[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (min > A[i])
+        {
+            min = A[i];
+        }
+        if (max < A[i])
+        {
+            max = A[i];
+        }
+    }
+    printf("Min = %d\t va Max = %d\n", min, max);
+}
+//=========================================================================================================================================================
+void sapXepGiam(int A[], int n)
 {
 }

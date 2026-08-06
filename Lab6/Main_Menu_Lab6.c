@@ -33,11 +33,9 @@ int main()
             chucNang2();
             break;
         case 3:
-
             chucNang3();
             break;
         case 4:
-            printf("Ban chon chuc nang 4: Ma tran binh phuong (Man 2 chieu)\n");
             chucNang4();
             break;
         case 5:
@@ -99,6 +97,16 @@ void chucNang3()
 //==================================================================================================================================================================
 void chucNang4()
 {
+    int n;
+    printf("Ban chon chuc nang 4: Ma tran binh phuong (Man 2 chieu)\n");
+    printf("Nhap so luong mang: ");
+    scanf("%d", &n);
+    int A[n];
+    printf("Nhap A[%d]= ", n);
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &A[i]);
+    }
 }
 //==================================================================================================================================================================
 void chucNang5()
@@ -147,4 +155,27 @@ void maxMin(int A[], int n)
 //=========================================================================================================================================================
 void sapXepGiam(int A[], int n)
 {
+        int temp;
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (A[i] < A[j])
+                {
+                    // hoán vị
+                    temp = A[i];
+                    A[i] = A[j];
+                    A[j] = temp;
+                }
+            }
+        }
+        // Xuất mảng sau khi sắp xếp
+        printf("Mang sau khi sap xep giam dan:\n");
+        printf(">> A[%d]= ",n);
+        for (int i = 0; i < n; i++)
+        {
+            printf("%d ", A[i]);
+        }
+        printf("\n");
 }
+//============================================================================================================================================

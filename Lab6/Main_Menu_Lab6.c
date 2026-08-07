@@ -11,6 +11,7 @@ void maxMin(int A[], int n);
 void sapXepGiam(int A[], int n);
 void swap(int *a, int *b);
 void maTranBinhPhuong(int row, int col);
+void xuatSoLeMaTran(int row, int col);
 int main()
 {
     int chon;
@@ -43,7 +44,6 @@ int main()
             chucNang4();
             break;
         case 5:
-            printf("Ban chon chuc nang 5: Loc va xuat vi tri cac so le trong ma tran\n");
             chucNang5();
             break;
         case 6:
@@ -116,13 +116,18 @@ void chucNang4()
     int row, col;
     printf("Ban chon chuc nang 4: Ma tran binh phuong (Mang 2 chieu)\n");
     printf("Nhap so dong va so cot: ");
-    scanf("%d%d", &row,&col);
+    scanf("%d%d", &row, &col);
     maTranBinhPhuong(row, col);
 }
 //==================================================================================================================================================================
 
 void chucNang5()
 {
+    int row, col;
+    printf("Ban chon chuc nang 5: Loc va xuat vi tri cac so le trong ma tran\n");
+    printf("Nhap so dong va so cot: ");
+    scanf("%d%d", &row, &col);
+    xuatSoLeMaTran(row, col);
 }
 
 //==================================================================================================================================================================
@@ -225,5 +230,32 @@ void maTranBinhPhuong(int row, int col)
             printf("%4d\t", A[i][j] * A[i][j]);
         }
         printf("\n");
+    }
+}
+//====================================================================================================================================================================
+
+void xuatSoLeMaTran(int row, int col)
+{
+    int A[row][col];
+    // Nhập mảng
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            printf("A[%d;%d] = ", i, j);
+            scanf("%d", &A[i][j]);
+        }
+    }
+    // Xuất mảng
+    printf(">> Cac phan tu le la: \n");
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (A[i][j] % 2 != 0)
+            {
+                printf("A[%d;%d] = %d\n", i, j, A[i][j]);
+            }
+        }
     }
 }

@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 void chucNang1();
 void chucNang2();
 void chucNang3();
 void chucNang4();
 
 void demNguyenAmPhuAm();
+void kiemTraDangNhap();
 int main()
 {
     int chon;
@@ -57,6 +59,7 @@ void chucNang1()
 void chucNang2()
 {
     printf("Ban chon chuc nang 2: Dang nhap he thong (User & Password)\n");
+    kiemTraDangNhap();
 }
 
 void chucNang3()
@@ -94,4 +97,24 @@ void demNguyenAmPhuAm()
     }
     printf("So nguyen am: %d\n", demNA);
     printf("So phu am: %d\n", demPA);
+}
+
+void kiemTraDangNhap()
+{
+    char user[20];
+    char pass[20];
+    char userSys[] = "admin";
+    char passSys[] = "123456";
+    printf("Nhap username: ");
+    scanf("%s",user); //Không dấu & vì user và pass là mảng(Chuỗi) nên tên mảng đã là địa
+    printf("Nhap password: ");
+    scanf("%s",pass); 
+    if ( strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0)
+    {
+        printf(">> Dang nhap thanh cong\n");
+    }
+    else
+    {
+        printf(">> Username hoac Password khong chinh xac!\n");
+    }
 }

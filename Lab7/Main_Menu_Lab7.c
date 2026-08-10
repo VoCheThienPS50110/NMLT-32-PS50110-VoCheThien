@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <ctype.h>
+#include <ctype.h> // dùng để sử dụng tolower và isalpha
 #include <string.h>
 void chucNang1();
 void chucNang2();
@@ -8,6 +8,8 @@ void chucNang4();
 
 void demNguyenAmPhuAm();
 void kiemTraDangNhap();
+void sapXepChuoi();
+void thapPhanSangNhiPhan();
 int main()
 {
     int chon;
@@ -65,10 +67,12 @@ void chucNang2()
 void chucNang3()
 {
     printf("Ban chon chuc nang 3: Sap xep danh sach chuoi theo thu tu AIphabet\n");
+    sapXepChuoi();
 }
 void chucNang4()
 {
     printf("Ban chon chuc nang 4: Chuyen doi so thap phan sang nhi phan (Chuoi)\n");
+    thapPhanSangNhiPhan();
 }
 //===========================================================================================================================================
 
@@ -117,4 +121,40 @@ void kiemTraDangNhap()
     {
         printf(">> Username hoac Password khong chinh xac!\n");
     }
+}
+
+void sapXepChuoi()
+{
+    char s[5][50];
+    printf("Nhap vao 5 chuoi:\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Chuoi %d: ", i + 1);
+        fgets(s[i], sizeof(s[i]), stdin);
+        s[i][strcspn(s[i], "\n")] = '\0'; // gán ký tự xuống hàng thành ký tự kết thúc chuỗi để bắt đầu chuỗi mới
+    }
+    // Sắp xếp chuỗi theo thứ tự bảng chữ cái
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = i + 1; j < 5; j++)
+        {
+            if (strcmp(s[i], s[j]) > 0)
+            {
+                char temp[50];
+                strcpy(temp, s[i]);
+                strcpy(s[i], s[j]);
+                strcpy(s[j], temp);
+            }
+        }
+    }
+    printf("Cac chuoi sau khi sap xep:\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%s\n", s[i]);
+    }
+}
+
+void thapPhanSangNhiPhan()
+{
+
 }

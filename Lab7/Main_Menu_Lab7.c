@@ -156,5 +156,29 @@ void sapXepChuoi()
 
 void thapPhanSangNhiPhan()
 {
-
+    int n;
+    printf("Nhap vao so thap phan: ");
+    scanf("%d", &n);
+    while (n < 0)
+    {
+        printf(">> Ban hay nhap mot so thap phan khong am <<\n");
+        printf("Nhap vao so thap phan: ");
+        scanf("%d", &n);
+    }
+    char nhiPhan[50];
+    int index = n;
+    while (n != 0)
+    {
+        if (n % 2 == 0)
+        {
+            strcat(nhiPhan, "0");
+        }
+        else
+        {
+            strcat(nhiPhan, "1");
+        }
+        n = n / 2;
+    }
+    strrev(nhiPhan);
+    printf("\nSo %d sau khi doi thanh ma nhi phan la: %s\n", index, nhiPhan);
 }

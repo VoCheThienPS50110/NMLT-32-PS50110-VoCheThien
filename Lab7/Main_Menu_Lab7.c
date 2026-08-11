@@ -69,6 +69,7 @@ void chucNang3()
     printf("Ban chon chuc nang 3: Sap xep danh sach chuoi theo thu tu AIphabet\n");
     sapXepChuoi();
 }
+
 void chucNang4()
 {
     printf("Ban chon chuc nang 4: Chuyen doi so thap phan sang nhi phan (Chuoi)\n");
@@ -110,10 +111,12 @@ void kiemTraDangNhap()
     char userSys[] = "admin";
     char passSys[] = "123456";
     printf("Nhap username: ");
-    scanf("%s",user); //Không dấu & vì user và pass là mảng(Chuỗi) nên tên mảng đã là địa
+    fgets(user, sizeof(user), stdin);
+    user[strcspn(user, "\n")] = '\0';
     printf("Nhap password: ");
-    scanf("%s",pass); 
-    if ( strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0)
+    fgets(pass, sizeof(pass), stdin);
+    pass[strcspn(pass, "\n")] = '\0';
+    if (strcmp(user, userSys) == 0 && strcmp(pass, passSys) == 0)
     {
         printf(">> Dang nhap thanh cong\n");
     }

@@ -159,29 +159,52 @@ void sapXepChuoi()
 
 void thapPhanSangNhiPhan()
 {
-    int n;
+    int thapPhan;
     printf("Nhap vao so thap phan: ");
-    scanf("%d", &n);
-    while (n < 0)
+    scanf("%d", &thapPhan);
+    int nhiPhan[50];
+    int index = 0;
+    do
     {
-        printf(">> Ban hay nhap mot so thap phan khong am <<\n");
-        printf("Nhap vao so thap phan: ");
-        scanf("%d", &n);
-    }
-    char nhiPhan[50];
-    int index = n;
-    while (n != 0)
+        nhiPhan[index] = thapPhan % 2;
+        thapPhan = thapPhan / 2;
+        index++;
+    }while (thapPhan != 0);
+
+    printf("\n");
+    for (int i = index-1; i >= 0; i--)
     {
-        if (n % 2 == 0)
-        {
-            strcat(nhiPhan, "0");
-        }
-        else
-        {
-            strcat(nhiPhan, "1");
-        }
-        n = n / 2;
+        printf("%d ", nhiPhan[i]);
     }
-    strrev(nhiPhan);
-    printf("\nSo %d sau khi doi thanh ma nhi phan la: %s\n", index, nhiPhan);
+    printf("\n");
 }
+// void thapPhanSangNhiPhan()
+// {
+//     int n;
+//     printf("Nhap vao so thap phan: ");
+//     scanf("%d", &n);
+//     while (n < 0)
+//     {
+//         printf(">> Ban hay nhap mot so thap phan khong am <<\n");
+//         printf("Nhap vao so thap phan: ");
+//         scanf("%d", &n);
+//     }
+//     char nhiPhan[50];
+//     int index = n;
+//     while (n != 0)
+//     {
+//         if (n % 2 == 0)
+//         {
+//             strcat(nhiPhan, "0");
+//         }
+//         else
+//         {
+//             strcat(nhiPhan, "1");
+//         }
+//         n = n / 2;
+//     }
+//     strrev(nhiPhan);
+//     printf("\nSo %d sau khi doi thanh ma nhi phan la: %s\n", index, nhiPhan);
+// }
+
+

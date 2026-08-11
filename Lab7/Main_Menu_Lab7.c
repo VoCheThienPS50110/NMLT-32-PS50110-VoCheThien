@@ -150,7 +150,7 @@ void sapXepChuoi()
             }
         }
     }
-    printf("Cac chuoi sau khi sap xep:\n");
+    printf("\n>> Cac chuoi sau khi sap xep <<\n");
     for (int i = 0; i < 5; i++)
     {
         printf("%s\n", s[i]);

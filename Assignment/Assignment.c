@@ -5,6 +5,7 @@ void chucNang2();
 void chucNang3();
 void chucNang4();
 void chucNang5();
+void chucNang6();
 int main()
 {
     int chon;
@@ -49,7 +50,7 @@ int main()
             chucNang5();
             break;
         case 6:
-            printf("Ban chon chuc nang 6: Tinh lay suat vay ngan hang vay tra gop\n");
+            chucNang6();
             break;
         case 7:
             printf("Ban chon chuc nang 7: Vay tien mua xe\n");
@@ -285,6 +286,24 @@ void chucNang5()
     }
 }
 
-void chucNang8()
+void chucNang6()
 {
+    int tien, laiPhaiTra, gocPhaiTra, soTienPhaiTra;
+    int kyHan = 12;
+    float laiXuat = 0.05; // Lãi xuất 1 tháng
+    printf("Ban chon chuc nang 6: Tinh lay suat vay ngan hang vay tra gop\n");
+    printf("Nhap so tien vay: ");
+    scanf("%d", &tien);
+    printf("++======================================================================================================================++\n");
+    printf("||\tKy Han\t||\tLai phai tra\t||\tGoc phai tra\t||\tSo tien phai tra\t||\tSo tien con la\t||\n");
+    printf("++======================================================================================================================++\n");
+    gocPhaiTra = tien / kyHan;
+    for (int i = 1; i <= kyHan; i++)
+    {
+        laiPhaiTra = tien * laiXuat;
+        tien = tien - gocPhaiTra;
+        soTienPhaiTra = laiPhaiTra + gocPhaiTra;
+        printf("||\t%d\t||\t%d\t\t||\t%d\t\t||\t\t%d\t\t||\t%.8d\t||\n", i, laiPhaiTra, gocPhaiTra, soTienPhaiTra, tien);
+        printf("++======================================================================================================================++\n");
+    }
 }

@@ -4,6 +4,7 @@ void chucNang1();
 void chucNang2();
 void chucNang3();
 void chucNang4();
+void chucNang5();
 int main()
 {
     int chon;
@@ -45,7 +46,7 @@ int main()
             chucNang4();
             break;
         case 5:
-            printf("Ban chon chuc nang 5: Chuc nang doi ten\n");
+            chucNang5();
             break;
         case 6:
             printf("Ban chon chuc nang 6: Tinh lay suat vay ngan hang vay tra gop\n");
@@ -193,9 +194,9 @@ void chucNang3()
 
                 tien = (3 * 150000) + ((tongtime - 3) * 150000 * 0.7);
                 // số 3 là 3 giờ đầu; 0.7 là do giảm 30 nên chỉ còn 70% = 0.7
-                // tongtime-3 là thời gian mà chơi lố vượt quá 3 giờ và giảm đi 30% tổng giá tiền
+                // tongtime-3 là thời gian mà chơi lố vượt quá 3 giờ và giảm đi 30% giá tiền/
             }
-            if (bd >= 14 && bd <= 17)
+            if (bd >= 14 && bd <= 17) // thgian BẮT ĐẦU từ 14 đến 17 giờ thì giảm 10% tổng tiền
             {
                 tien = tien * 0.9;
             }
@@ -248,4 +249,42 @@ void chucNang4()
             break;
         }
     }
+}
+
+void chucNang5()
+{
+    int tien;
+    int menhGia[] = {500000, 200000, 100000, 50000, 20000, 10000, 5000, 2000, 1000};
+    int soTo[9];
+    int i;
+    printf("Ban chon chuc nang 5: doi tien\n");
+    printf("Nhap so tien can doi: ");
+    scanf("%d", &tien);
+    while (tien < 0)
+    {
+        printf("Vui long nhap lai so tien can doi (>=0)!\n");
+        printf("Nhap so tien can doi: ");
+        scanf("%d", &tien);
+    }
+    for (i = 0; i < 9; i++)
+    {
+        soTo[i] = tien / menhGia[i]; // Tính số tờ tiền của mỗi mệnh giá
+        tien = tien % menhGia[i];    // Cập nhật số tiền còn lại sau khi đổi tờ tiền của mệnh giá hiện tại
+    }
+    printf("\n>> Ket qua doi <<\n");
+    for (i = 0; i < 9; i++)
+    {
+        if (soTo[i] > 0)
+        {
+            printf("%3d to %6d vnd\n", soTo[i], menhGia[i]);
+        }
+    }
+    if (tien > 0)
+    {
+        printf(">> So tien khong doi duoc la: %d vnd\n", tien);
+    }
+}
+
+void chucNang8()
+{
 }

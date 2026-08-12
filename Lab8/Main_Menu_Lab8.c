@@ -66,6 +66,29 @@ int main()
 
 void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
 {
-    
+    int dem=1;
+    printf("Nhap so luong sinh vien: ");
+    scanf("%d", n);
+    for (int i = 0; i < *n; i++)
+    {
+        printf(">> Sinh vien %d <<\n", dem);
+        printf("Nhap MSSV: ");
+        scanf("%s", mangSV[i].MSSV);
+        printf("Nhap Ho ten: ");
+        getchar(); 
+        fgets(mangSV[i].hoTen, sizeof(mangSV[i].hoTen), stdin);
+        mangSV[i].hoTen[strcspn(mangSV[i].hoTen, "\n")] = '\0';
+        printf("Nhap diem TB: ");
+        scanf("%f", &mangSV[i].diemTB);
+        printf("\n");
+        dem++;
+    }
+    int soDem=1;
+    printf("\n >> Danh sach sinh vien vua nhap:\n");
+    for (int i = 0; i < *n; i++)
+    {
+        printf(" %d. %s -\t%s -\t%.2f\n", soDem, mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
+        soDem++;
+    }
 }
 

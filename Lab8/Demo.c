@@ -84,11 +84,64 @@ void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
         dem++;
     }
     int soDem=1;
-    printf("\n >> Danh sach sinh vien vua nhap:\n");
+    printf("\n>> Danh sach sinh vien vua nhap:\n");
     for (int i = 0; i < *n; i++)
     {
-        printf(" %d. %s -\t%s -\t%.2f\n", soDem, mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
+        printf("%d. %s -\t%s -\t%.2f\n", soDem, mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
         soDem++;
     }
 }
 
+void sapXepSinhVien(struct SinhVien mangSV[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (mangSV[i].diemTB > mangSV[j].diemTB)
+            {
+                struct SinhVien temp = mangSV[i];
+                mangSV[i] = mangSV[j];
+                mangSV[j] = temp;
+            }
+        }
+    }
+    printf("Danh sach sau khi sap xep:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s - %s - %.2f\n", mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
+    }
+}
+
+void timKiemSinhVien(struct SinhVien mangSV[], int n)
+{
+    char mssvTim[20];
+    printf("Nhap MSSV can tim: ");
+    scanf("%s", mssvTim);
+    int found = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (strcmp(mangSV[i].MSSV, mssvTim) == 0)
+        {
+            printf("Tim thay: %s - %s - %.2f\n", mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
+            found = 1;
+            break;
+        }
+    }
+    if (!found)
+    {
+        printf("Khong tim thay MSSV %s\n", mssvTim);
+    }
+}
+
+void xuatHocBong(struct SinhVien mangSV[], int n)
+{
+    printf("Danh sach sinh vien dat hoc bong (>= 8.0):\n");
+    for (int i = 0; i < n; i++)
+    {
+        if (mangSV[i].diemTB >= 8.0)
+        {
+            printf("%s - %s - %.2f\n", mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
+        }
+    }
+}

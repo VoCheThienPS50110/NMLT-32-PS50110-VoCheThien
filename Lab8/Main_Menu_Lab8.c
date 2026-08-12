@@ -71,7 +71,7 @@ void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
     scanf("%d", n);
     for (int i = 0; i < *n; i++)
     {
-        printf(">> Sinh vien %d <<\n", dem);
+        printf("\n>> Sinh vien %d <<\n", dem);
         printf("Nhap MSSV: ");
         scanf("%s", mangSV[i].MSSV);
         printf("Nhap Ho ten: ");
@@ -91,4 +91,12 @@ void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
         soDem++;
     }
 }
-
+void sapXepSinhVien(struct SinhVien mangSV[], int n)
+{
+}
+void timKiemSinhVien(struct SinhVien mangSV[], int n)
+{
+}
+void xuatHocBong(struct SinhVien mangSV[], int n)
+{
+}

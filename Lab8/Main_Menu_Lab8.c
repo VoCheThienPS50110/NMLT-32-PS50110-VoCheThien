@@ -63,40 +63,64 @@ int main()
 
     return 0;
 }
-
+//=============================================================================================================
 void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
+// int *n con trỏ tới số lượng sinh viên (dùng để lưu số lượng nhập vào).
 {
-    int dem=1;
     printf("Nhap so luong sinh vien: ");
     scanf("%d", n);
     for (int i = 0; i < *n; i++)
     {
-        printf("\n>> Sinh vien %d <<\n", dem);
+        printf(">> Sinh vien %d <<\n", i+1);
         printf("Nhap MSSV: ");
         scanf("%s", mangSV[i].MSSV);
+
         printf("Nhap Ho ten: ");
-        getchar(); 
+        getchar();
+        // getchar loại bỏ ký tự xuống dòng còn sót lại từ lần nhập trước.
         fgets(mangSV[i].hoTen, sizeof(mangSV[i].hoTen), stdin);
         mangSV[i].hoTen[strcspn(mangSV[i].hoTen, "\n")] = '\0';
+        // strcspn để xóa ký tự \n ở cuối chuỗi.
+
         printf("Nhap diem TB: ");
         scanf("%f", &mangSV[i].diemTB);
         printf("\n");
-        dem++;
     }
-    int soDem=1;
-    printf("\n >> Danh sach sinh vien vua nhap:\n");
+    printf(" >> Danh sach sinh vien vua nhap <<\n");
+    printf("%-5s %-20s %-12s %-6s\n", "STT", "Ho va Ten", "MSSV", "DiemTB");
+    // %-5d %-20s %-12s %-6.2f dùng để chỉnh ngay ngắn theo số lượng kí tự đã quy định, căn trái
     for (int i = 0; i < *n; i++)
     {
-        printf(" %d. %s -\t%s -\t%.2f\n", soDem, mangSV[i].MSSV, mangSV[i].hoTen, mangSV[i].diemTB);
-        soDem++;
+        printf("%-5d %-20s %-12s %-6.2f\n", i + 1, mangSV[i].hoTen, mangSV[i].MSSV, mangSV[i].diemTB);
     }
 }
+//=============================================================================================================
 void sapXepSinhVien(struct SinhVien mangSV[], int n)
 {
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (mangSV[i].diemTB > mangSV[j].diemTB)
+            {
+                struct SinhVien temp = mangSV[i];
+                mangSV[i] = mangSV[j];
+                mangSV[j] = temp;
+            }
+        }
+    }
+    printf("\n>> Danh sach sau khi sap xep <<\n");
+    printf("%-5s %-20s %-12s %-6s\n", "STT", "Ho va Ten", "MSSV", "DiemTB");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%-5d %-20s %-12s %-6.2f\n", i + 1, mangSV[i].hoTen, mangSV[i].MSSV, mangSV[i].diemTB);
+    }
 }
+//=============================================================================================================
 void timKiemSinhVien(struct SinhVien mangSV[], int n)
 {
 }
+//=============================================================================================================
 void xuatHocBong(struct SinhVien mangSV[], int n)
 {
 }

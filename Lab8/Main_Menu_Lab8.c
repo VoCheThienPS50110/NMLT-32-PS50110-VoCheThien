@@ -71,7 +71,7 @@ void nhapXuatSinhVien(struct SinhVien mangSV[], int *n)
     scanf("%d", n);
     for (int i = 0; i < *n; i++)
     {
-        printf(">> Sinh vien %d <<\n", i+1);
+        printf(">> Sinh vien %d <<\n", i + 1);
         printf("Nhap MSSV: ");
         scanf("%s", mangSV[i].MSSV);
 
@@ -119,6 +119,25 @@ void sapXepSinhVien(struct SinhVien mangSV[], int n)
 //=============================================================================================================
 void timKiemSinhVien(struct SinhVien mangSV[], int n)
 {
+    char mssvTim[50];
+    int found = 0;
+    printf("Nhap MSSV can tim: ");
+    scanf("%s", mssvTim);
+    for (int i = 0; i <= n - 1; i++)
+    {
+        if (strcmp(mangSV[i].MSSV, mssvTim) == 0)
+        {
+            printf(">> Thong tin sinh vien can tim <<\n");
+            printf("%-5s %-20s %-12s %-6s\n", "STT", "Ho va Ten", "MSSV", "DiemTB");
+            printf("%-5d %-20s %-12s %-6.2f\n", i + 1, mangSV[i].hoTen, mangSV[i].MSSV, mangSV[i].diemTB);
+            found = 1;
+            break;
+        }
+    }
+    if (found == 0)
+    {
+        printf(">> Khong tim thay sinh vien co MSSV nay <<\n");
+    }
 }
 //=============================================================================================================
 void xuatHocBong(struct SinhVien mangSV[], int n)

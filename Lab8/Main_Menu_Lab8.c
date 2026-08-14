@@ -142,4 +142,14 @@ void timKiemSinhVien(struct SinhVien mangSV[], int n)
 //=============================================================================================================
 void xuatHocBong(struct SinhVien mangSV[], int n)
 {
+    printf("\n>> Danh sach sinh vien dat hoc bong (>= 8.0) <<\n");
+    printf("%-5s %-20s %-12s %-6s\n", "STT", "Ho va Ten", "MSSV", "DiemTB");
+    for (int i = 0; i <= n - 1; i++)
+    {
+        
+        if (mangSV[i].diemTB >= 8.0)
+        {
+            printf("%-5d %-20s %-12s %-6.2f\n", i + 1, mangSV[i].hoTen, mangSV[i].MSSV, mangSV[i].diemTB);
+        }
+    }
 }

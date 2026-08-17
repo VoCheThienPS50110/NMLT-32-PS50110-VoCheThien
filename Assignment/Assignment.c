@@ -7,6 +7,8 @@ void chucNang4();
 void chucNang5();
 void chucNang6();
 void chucNang7();
+void chucNang8();
+const char *xepLoai(float diem);
 int main()
 {
     int chon;
@@ -59,6 +61,7 @@ int main()
             break;
         case 8:
             printf("Ban chon chuc nang 8: Sap xep thong tin sinh vien\n");
+            chucNang8();
             break;
         case 9:
             printf("Ban chon chuc nang 9: Xay dung game FPOLY-LOTT\n");
@@ -314,7 +317,7 @@ void chucNang7()
 {
     float phanTramDuocVay = 0.8;
     int tienVay = 500000000 * phanTramDuocVay, kyHan = 12 * 24;
-    float laiThang =7.2 / 12;
+    float laiThang = 7.2 / 12;
     int gocPhaiTra = tienVay / kyHan;
 
     printf("Tong tien can vay %d \n", tienVay);
@@ -325,7 +328,7 @@ void chucNang7()
         int tienLai = tienVay * laiThang;
         tienVay = tienVay - gocPhaiTra;
         int tienPhaiTra = tienLai + gocPhaiTra;
-        if (i==kyHan)
+        if (i == kyHan)
         {
             tienPhaiTra = tienPhaiTra + tienVay;
             tienVay = 0;
@@ -334,3 +337,33 @@ void chucNang7()
     }
 }
 
+void chucNang8()
+{
+    struct SinhVien
+    {
+        char maSV[9];
+        char tenSV[30];
+        float diemSV;
+    };
+    struct SinhVien dsSV[40] = {
+        {"PS10000", "Nguyen Van A", 7.5},
+        {"PS20000", "Truong Van B", 5.7},
+        {"PS30000", "Vo Van C", 9.4}};
+    int n = 3;
+    for (int i = 0; i < n; i++)
+    {
+        printf("%5d%10s%30s%6.2f%10s\n", i + 1, dsSV[i].maSV, dsSV[i].tenSV, dsSV[i].diemSV,xepLoai(dsSV[i].diemSV));
+    }
+}
+
+const char *xepLoai(float diem)
+{
+    if (diem > 8.0)
+        return "Gioi";
+    else if (diem > 6.5)
+        return "Kha";
+    else if (diem > 5)
+        return "Trung binh";
+    else
+        return "Yeu";
+}

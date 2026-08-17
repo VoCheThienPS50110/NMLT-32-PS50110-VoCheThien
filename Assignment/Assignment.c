@@ -6,13 +6,14 @@ void chucNang3();
 void chucNang4();
 void chucNang5();
 void chucNang6();
+void chucNang7();
 int main()
 {
     int chon;
     do
     {
         printf("++=================================================================++\n");
-        printf("||                 MENU CHUONG TRINH ASSIGNMENT 1                  ||\n");
+        printf("||                 MENU CHUONG TRINH ASSIGNMENT                    ||\n");
         printf("++=================================================================++\n");
         printf("||     Chuc nang 0. Thoat chuong trinh                             ||\n");
         printf("||     Chuc nang 1: Kiem tra so nguyen                             ||\n");
@@ -54,6 +55,7 @@ int main()
             break;
         case 7:
             printf("Ban chon chuc nang 7: Vay tien mua xe\n");
+            chucNang7();
             break;
         case 8:
             printf("Ban chon chuc nang 8: Sap xep thong tin sinh vien\n");
@@ -294,16 +296,41 @@ void chucNang6()
     printf("Ban chon chuc nang 6: Tinh lay suat vay ngan hang vay tra gop\n");
     printf("Nhap so tien vay: ");
     scanf("%d", &tien);
-    printf("++======================================================================================================================++\n");
-    printf("||\tKy Han\t||\tLai phai tra\t||\tGoc phai tra\t||\tSo tien phai tra\t||\tSo tien con la\t||\n");
-    printf("++======================================================================================================================++\n");
+    printf("+===================================================================================+\n");
+    printf("| %-6s | %-15s | %-15s | %-18s | %-15s |\n", "Ky Han", "Lai phai tra", "Goc phai tra", "So tien phai tra", "So tien con lai");
+    printf("+===================================================================================+\n");
     gocPhaiTra = tien / kyHan;
     for (int i = 1; i <= kyHan; i++)
     {
         laiPhaiTra = tien * laiXuat;
         tien = tien - gocPhaiTra;
         soTienPhaiTra = laiPhaiTra + gocPhaiTra;
-        printf("||\t%d\t||\t%d\t\t||\t%d\t\t||\t\t%d\t\t||\t%.8d\t||\n", i, laiPhaiTra, gocPhaiTra, soTienPhaiTra, tien);
-        printf("++======================================================================================================================++\n");
+        printf("| %-6d | %-15d | %-15d | %-18d | %-15d |\n", i, laiPhaiTra, gocPhaiTra, soTienPhaiTra, tien);
+        printf("+===================================================================================+\n");
     }
 }
+
+void chucNang7()
+{
+    float phanTramDuocVay = 0.8;
+    int tienVay = 500000000 * phanTramDuocVay, kyHan = 12 * 24;
+    float laiThang =7.2 / 12;
+    int gocPhaiTra = tienVay / kyHan;
+
+    printf("Tong tien can vay %d \n", tienVay);
+    printf("%6s%18s%18s%18s%18s\n", "Thang", "Tien lai", "Goc phai tra", "Tien phai tra", "Con lai");
+    for (int i = 1; i <= kyHan; i++)
+    {
+        // Tien lai. Tien goc. Tien phai tra. Con lai
+        int tienLai = tienVay * laiThang;
+        tienVay = tienVay - gocPhaiTra;
+        int tienPhaiTra = tienLai + gocPhaiTra;
+        if (i==kyHan)
+        {
+            tienPhaiTra = tienPhaiTra + tienVay;
+            tienVay = 0;
+        }
+        printf("%6d%18d%18d%18d%18d\n", i, tienLai, gocPhaiTra, tienPhaiTra, tienVay);
+    }
+}
+

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 // #include <math.h> khi nào sử dụng đến sqrt mới cần đến thư viện này
 void chucNang1();
 void chucNang2();
@@ -9,6 +11,7 @@ void chucNang6();
 void chucNang7();
 void chucNang8();
 const char *xepLoai(float diem);
+void chucNang9();
 int main()
 {
     int chon;
@@ -65,6 +68,7 @@ int main()
             break;
         case 9:
             printf("Ban chon chuc nang 9: Xay dung game FPOLY-LOTT\n");
+            chucNang9();
             break;
         case 10:
             printf("Ban chon chuc nang 10: Chuong trinh tinh toan phan so\n");
@@ -352,7 +356,7 @@ void chucNang8()
     int n = 3;
     for (int i = 0; i < n; i++)
     {
-        printf("%5d%10s%30s%6.2f%10s\n", i + 1, dsSV[i].maSV, dsSV[i].tenSV, dsSV[i].diemSV,xepLoai(dsSV[i].diemSV));
+        printf("%5d%10s%30s%6.2f%10s\n", i + 1, dsSV[i].maSV, dsSV[i].tenSV, dsSV[i].diemSV, xepLoai(dsSV[i].diemSV));
     }
 }
 
@@ -366,4 +370,39 @@ const char *xepLoai(float diem)
         return "Trung binh";
     else
         return "Yeu";
+}
+
+void chucNang9()
+{
+    srand(time(NULL));
+    int r1 = rand() % 15 + 1, r2;
+    do
+    {
+        r2 = rand() % 15 + 1;
+    } while (r1 == r2);
+    // printf("%d\t%d\n", r1, r2);
+    int a, b;
+    printf("Nhap vao hai so: ");
+    scanf("%d%d", &a, &b);
+    int dem = 0;
+    if ((a == r1) || (a == r2))
+    {
+        dem++;
+    }
+    if ((b == r1) || (b == r2))
+    {
+        dem++;
+    }
+    switch (dem)
+    {
+    case 0:
+        printf("Chuc ban may man lan sau!\n");
+        break;
+    case 1:
+        printf("Chuc mung ban da trung giai Nhi!\n");
+        break;
+    case 2:
+        printf("Chuc mung ban da trung giai Nhat!\n");
+        break;
+    }
 }

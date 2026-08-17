@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include <time.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+#include <time.h>
 // #include <math.h> khi nào sử dụng đến sqrt mới cần đến thư viện này
 void chucNang1();
 void chucNang2();
@@ -12,6 +14,20 @@ void chucNang7();
 void chucNang8();
 const char *xepLoai(float diem);
 void chucNang9();
+void chucNang10();
+bool kiemTraSoNguyen(float so);
+bool kiemTraSNT(int so);
+bool kiemTraSCP(int so);
+int timUCLN(int a, int b);
+int timBCNN(int a, int b);
+const char *xepLoai(float diem);
+struct PhanSo nhapPS();
+struct PhanSo
+{
+    int tu;
+    int mau;
+};
+struct PhanSo rutGonPS(struct PhanSo ps);
 int main()
 {
     int chon;
@@ -72,6 +88,7 @@ int main()
             break;
         case 10:
             printf("Ban chon chuc nang 10: Chuong trinh tinh toan phan so\n");
+            chucNang10();
             break;
         default:
             printf(">> Ban phai chon chuc nang tu 0 - 10 <<\n");
@@ -405,4 +422,111 @@ void chucNang9()
         printf("Chuc mung ban da trung giai Nhat!\n");
         break;
     }
+}
+
+void chucNang10()
+{
+    struct PhanSo ps1, ps2, psTong, psHieu, psTich, psThuong;
+    printf("Nhap phan so 1: \n");
+    // scanf("%d%d",&ps1.tu,&ps1.mau);
+    ps1 = nhapPS();
+    printf("Nhap phan so 2: \n");
+    // scanf("%d%d",&ps2.tu,&ps2.mau);
+    ps2 = nhapPS();
+
+    psTong.tu = ps1.tu * ps2.mau + ps2.tu * ps1.mau;
+    psTong.mau = ps1.mau * ps2.mau;
+
+    psHieu.tu = ps1.tu * ps2.mau - ps2.tu * ps1.mau;
+    psHieu.mau = ps1.mau * ps2.mau;
+
+    psTich.tu = ps1.tu * ps2.tu;
+    psTich.mau = ps1.mau * ps2.mau;
+
+    psThuong.tu = ps1.tu * ps2.mau;
+    psThuong.mau = ps1.mau * ps2.tu;
+    printf("Tong: %d/%d + %d/%d = %d/%d -> %d/%d\n",
+           ps1.tu, ps1.mau,
+           ps2.tu, ps2.mau,
+           psTong.tu, psTong.mau,
+           rutGonPS(psTong).tu,
+           rutGonPS(psTong).mau);
+    printf("Hieu: %d/%d - %d/%d = %d/%d -> %d/%d\n",
+           ps1.tu, ps1.mau,
+           ps2.tu, ps2.mau,
+           psHieu.tu, psHieu.mau,
+           rutGonPS(psHieu).tu,
+           rutGonPS(psHieu).mau);
+    printf("Tich: %d/%d * %d/%d = %d/%d -> %d/%d\n",
+           ps1.tu, ps1.mau,
+           ps2.tu, ps2.mau,
+           psTich.tu, psTich.mau,
+           rutGonPS(psTich).tu,
+           rutGonPS(psTich).mau);
+    printf("Thuong: %d/%d : %d/%d = %d/%d -> %d/%d\n",
+           ps1.tu, ps1.mau,
+           ps2.tu, ps2.mau,
+           psThuong.tu, psThuong.mau,
+           rutGonPS(psThuong).tu,
+           rutGonPS(psThuong).mau);
+}
+struct PhanSo nhapPS()
+{
+    struct PhanSo ps;
+    printf("Nhap (tu mau): ");
+    scanf("%d%d", &ps.tu, &ps.mau);
+    return ps;
+}
+struct PhanSo rutGonPS(struct PhanSo ps)
+{ // 4/6.
+    struct PhanSo tempPS;
+    tempPS.tu = ps.tu / timUCLN(ps.tu, ps.mau);
+    tempPS.mau = ps.mau / timUCLN(ps.tu, ps.mau);
+    return tempPS;
+}
+
+
+
+int timUCLN(int a, int b);
+int timBCNN(int a, int b);
+
+int timUCLN(int a, int b)
+{
+    while (b != 0)
+    {
+        int du = a % b;
+        a = b;
+        b = du;
+    }
+    return a;
+}
+
+int timBCNN(int a, int b)
+{
+    return (a * b) / timUCLN(a, b);
+}
+
+bool kiemTraSoNguyen(float so)
+{
+    return (int)so == so;
+}
+
+bool kiemTraSNT(int so)
+{
+    if (so < 2)
+        return false;
+    if (so == 2)
+        return true;
+    for (int i = 2; i <= so / 2; i++)
+    {
+        if (so % i == 0)
+            return false;
+    }
+    return true;
+}
+
+bool kiemTraSCP(int so)
+{
+    int can = (int)sqrt(so);
+    return can * can == so;
 }
